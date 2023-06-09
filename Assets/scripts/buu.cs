@@ -9,10 +9,12 @@ public class buu : MonoBehaviour
 
 
     public GameObject bl;
+    public GameObject so;
 
     public GameObject[] tr = new GameObject[4];
 
     private int a = 0;
+
 
     private int b = 0;
 
@@ -36,6 +38,7 @@ public class buu : MonoBehaviour
             Destroy(tr[2]);
             Destroy(tr[3]);
             Destroy(obj);
+            Destroy(so);
 
         }
     }
