@@ -8,6 +8,7 @@ public class camera : MonoBehaviour
     private float Y;
     public float sensa = 200f;
     public Transform player;
+    public Transform fonarik;
 
     void Start()
     {
@@ -20,5 +21,6 @@ public class camera : MonoBehaviour
         Y = Input.GetAxis("Mouse Y") * sensa * Time.deltaTime;
         player.Rotate(X * new Vector3(0, 1, 0));
         transform.Rotate(-Y * new Vector3(1,0,0));
+        fonarik.Rotate(-Y * new Vector3(1,0,0));
     }
 }

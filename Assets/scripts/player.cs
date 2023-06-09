@@ -5,9 +5,15 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     public float speed = 5f;
-    [NonSerialized]public bool ground;
+    [SerializeField]public bool ground;
     public Rigidbody PLAYer;
-    public float JumpPow;
+    public float JumpPow = 5f;
+    public Vector3 jump;
+
+    private void Start()
+    {
+        jump = new Vector3(0f, 1f, 0f);
+    }
 
     private void input()
     {
@@ -27,12 +33,9 @@ public class player : MonoBehaviour
         {
             transform.localPosition += -transform.right * speed * Time.deltaTime;
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && ground == true)
         {
-            if (ground == true)
-            {
-                PLAYer.AddForce(transform.up * JumpPow);
-            }
+            PLAYer.AddForce(jump * JumpPow, ForceMode.Impulse);
         }
     }
     private void FixedUpdate()
